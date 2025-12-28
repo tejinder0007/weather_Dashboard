@@ -25,12 +25,26 @@ function App() {
   };
 
   return (
-    <div className=" flex justify-center content-center   w-full h-screen m-0 bg-cover bg-[url('https://images.unsplash.com/photo-1651523862184-5663390bea44?q=80&w=929&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] overflow-hidden">
-    <div className="container text-center flex flex-col relative top-40 ">
-      <h2 className="mb-4 text-5xl">🌤️ Weather Dashboard</h2>
-      <SearchBox fetchWeather={fetchWeather} />
-      {loading ? <p>Loading...</p> : weatherData && <WeatherCard data={weatherData} />}
-    </div></div>
+    
+    <div className="flex justify-center w-full min-h-screen bg-cover bg-center bg-no-repeat bg-[url('https://images.unsplash.com/photo-1651523862184-5663390bea44?q=80&w=929&auto=format&fit=crop')] px-4 py-8">
+      
+      
+      <div className="w-full max-w-lg md:max-w-2xl text-center flex flex-col items-center mt-10 md:mt-32 gap-6">
+        
+       
+        <h2 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
+          🌤️ Weather Dashboard
+        </h2>
+        
+        <SearchBox fetchWeather={fetchWeather} />
+        
+        {loading ? (
+          <p className="text-white text-xl font-semibold animate-pulse">Loading...</p>
+        ) : (
+          weatherData && <WeatherCard data={weatherData} />
+        )}
+      </div>
+    </div>
   );
 }
 
